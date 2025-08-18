@@ -1,9 +1,9 @@
 package com.mycompany.calculadora;
 
 public class Calculadora {
-    
+
     private double numero1;
-    private double numero2; 
+    private double numero2;
 
     public Calculadora() {
     }
@@ -20,16 +20,28 @@ public class Calculadora {
     public void setNumero2(double numero2) {
         this.numero2 = numero2;
     }
-        
-    public double addition (){
+
+    public double addition() {
         return numero1 + numero2;
     }
-    
-    public double multiplication(){
+
+    public double subtraction() {
+        return numero1 - numero2;
+    }
+
+    public double multiplication() {
         return numero1 * numero2;
     }
-    
-    public double potenciacion(){
+
+    public double division() {
+        if (numero2 == 0) {
+            throw new ArithmeticException("No se puede dividir entre cero");
+        }
+        return numero1 / numero2;
+    }
+
+    public double potenciacion() {
         return Math.pow(numero1, numero2);
     }
+
 }
