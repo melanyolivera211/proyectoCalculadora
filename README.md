@@ -35,3 +35,19 @@ Si no pasas `-P`, `act` usará una imagen por defecto; la opción `-P` mapea el 
 ## Notas
 - El workflow en `.github/workflows/ci.yml` está configurado para usar JDK 21 (Temurin) y cache de Maven.
 - `Dockerfile.act` ejecuta `mvn test` durante la construcción, por lo que la `docker build` fallará si los tests fallan.
+
+## Resultados de pruebas (local con Docker)
+
+Resumen:
+- Tests ejecutados: 6
+- Fallos: 0
+- Estado: BUILD SUCCESS
+
+Fragmento del log (ci-success.log):
+
+```
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+```
+
+El archivo completo de salida local se encuentra en `ci-success.log`.
