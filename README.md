@@ -1,3 +1,37 @@
-Addel José Perez Ospino -01xhero-HeroplayGT
-Melany Marina Olivera Atencio
-Juan Pablo Moreno Baquero
+Proyecto Calculadora
+
+Autores:
+- Addel José Perez Ospino - 01xhero-HeroplayGT
+- Melany Marina Olivera Atencio
+- Juan Pablo Moreno Baquero
+
+## Entregables
+- Código fuente Java (clase `Calculadora` y pruebas en `src/test/java`).
+- `pom.xml` con JUnit Jupiter y plugin Surefire.
+- Workflow de GitHub Actions: `.github/workflows/ci.yml`.
+- `Dockerfile.act` para correr el workflow localmente con `act`.
+- `.dockerignore` para excluir artefactos locales.
+
+## Ejecutar CI localmente con act
+1. Instala `act` y Docker en tu máquina.
+2. (Opcional) Construye la imagen para `act` localmente:
+
+```powershell
+docker build -t calculadora-act -f Dockerfile.act .
+```
+
+3. Ejecuta el workflow usando `act` y la imagen creada:
+
+```powershell
+act -j build -P ubuntu-latest=calculadora-act:latest
+```
+
+Si no pasas `-P`, `act` usará una imagen por defecto; la opción `-P` mapea el runner a una imagen local.
+
+### Resultado esperado
+- Ejecución exitosa: `BUILD SUCCESS` y `Tests run: 6, Failures: 0`.
+- Ejecución fallida (simulación): altera temporalmente un `assertEquals` en `CalculadoraTest.java` y vuelve a ejecutar `act`; el workflow debe fallar y mostrar el stacktrace de Maven.
+
+## Notas
+- El workflow en `.github/workflows/ci.yml` está configurado para usar JDK 21 (Temurin) y cache de Maven.
+- `Dockerfile.act` ejecuta `mvn test` durante la construcción, por lo que la `docker build` fallará si los tests fallan.
