@@ -39,6 +39,7 @@ public class Main {
 
                     c.setNumero1(a);
                     c.setNumero2(b);
+                    System.out.println("Resultado de la resta: "+c.subtraction());
                 }
                 case 3 -> { 
                     System.out.println("=====Calculadora=====");
@@ -53,6 +54,13 @@ public class Main {
                     System.out.println("Resultado de la multiplicación: "+c.multiplication());
                 }
                 case 4 -> {
+                    System.out.println("=====Calculadora=====");
+                    a = leerNumero(entrada, "Ingrese número a: ");
+                    b = leerNumero(entrada, "Ingrese número b: ");
+
+                    c.setNumero1(a);
+                    c.setNumero2(b);
+                    System.out.println("Resultado de la potenciación: "+c.division());
                 }
                 case 5 -> { 
                     System.out.println("=====Calculadora=====");
