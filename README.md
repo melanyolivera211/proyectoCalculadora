@@ -51,3 +51,21 @@ Fragmento del log (ci-success.log):
 ```
 
 El archivo completo de salida local se encuentra en `ci-success.log`.
+
+## Evidencia de fallo (simulación)
+
+Se introdujo temporalmente un fallo en `CalculadoraTest.testAddition` para verificar el comportamiento del CI. Resumen:
+- Tests ejecutados: 6
+- Fallos: 1 (testAddition)
+- Estado: BUILD FAILURE
+
+Fragmento del log (ci-failure.log):
+
+```
+[ERROR] com.mycompany.calculadora.CalculadoraTest.testAddition -- Time elapsed: 0.014 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 5 + 3 debe ser 9 (fallo intencional) ==> expected: <9.0> but was: <8.0>
+[ERROR] Tests run: 6, Failures: 1, Errors: 0, Skipped: 0
+[INFO] BUILD FAILURE
+```
+
+El archivo completo de salida local se encuentra en `ci-failure.log`.
