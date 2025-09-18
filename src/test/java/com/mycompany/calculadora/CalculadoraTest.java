@@ -11,7 +11,7 @@ class CalculadoraTest {
         Calculadora calc = new Calculadora(5, 3);
         double resultado = calc.addition();
         System.out.println("🔹 Probando suma: 5 + 3 = " + resultado);
-        assertEquals(8, resultado, "5 + 3 debe ser 8");
+    assertEquals(8, resultado, "5 + 3 debe ser 8");
         System.out.println("Suma correcta");
     }
 
